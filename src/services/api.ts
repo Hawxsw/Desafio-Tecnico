@@ -3,18 +3,6 @@ import { UserService } from "./clients/user.service";
 import { AuthService } from "./clients/auth.service";
 import { ProductService } from "./clients/product.service";
 
-export interface IPaginationMeta {
-  page: number;
-  pageSize: number;
-  total: number;
-  totalPages: number;
-}
-
-export interface IPaginationResponse<T> {
-  data: T[];
-  meta: IPaginationMeta;
-}
-
 export class ApiService {
     public api: AxiosInstance;
     readonly user: UserService;

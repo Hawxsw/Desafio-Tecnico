@@ -49,6 +49,9 @@ export function WeeklyRevenueChart() {
                 strokeWidth={2}
                 dot={{ fill: "var(--color-receita)", strokeWidth: 2, r: 3 }}
                 activeDot={{ r: 5, stroke: "var(--color-receita)", strokeWidth: 2 }}
+                isAnimationActive={true}
+                animationDuration={800}
+                animationEasing="ease-out"
               />
             </LineChart>
           </ResponsiveContainer>

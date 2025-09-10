@@ -18,12 +18,12 @@ export const ProductsSearchAndFilter = ({
 }: ProductsSearchAndFilterProps) => (
   <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
     <div className="relative flex-1 max-w-sm">
-      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-black dark:text-white" />
       <Input
         placeholder="Buscar produtos..."
         value={globalFilter}
         onChange={(e) => setGlobalFilter(e.target.value)}
-        className="pl-10"
+        className="pl-10 bg-white text-black dark:bg-background dark:text-white"
       />
     </div>
     <div className="text-sm text-gray-500">

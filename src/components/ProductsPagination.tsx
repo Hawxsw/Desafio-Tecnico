@@ -20,7 +20,7 @@ export const ProductsPagination = ({ table }: ProductsPaginationProps) => (
             ({table.getFilteredRowModel().rows.length} resultados)
           </span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 text-black dark:text-white">
           <Button
             variant="bordered"
             size="sm"

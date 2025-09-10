@@ -10,8 +10,8 @@ interface ProductsHeaderProps {
 export const ProductsHeader = ({ handleCreateProduct }: ProductsHeaderProps) => (
   <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
     <div>
-      <h1 className="text-2xl font-semibold text-gray-900">Produtos</h1>
-      <p className="text-sm text-gray-500">
+      <h1 className="text-2xl font-semibold text-black dark:text-white">Produtos</h1>
+      <p className="text-sm text-black dark:text-white">
         Gerencie seus produtos e visualize seu desempenho
       </p>
     </div>

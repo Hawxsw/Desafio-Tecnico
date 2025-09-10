@@ -14,6 +14,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { MobileMenu } from "./mobile-menu";
 import { useRouter } from "next/navigation";
+import { ThemeSwitch } from "../theme-switch";
 
 export const HeaderMenu = () => {
   const { token, logout } = useAuthStore();
@@ -31,7 +32,7 @@ export const HeaderMenu = () => {
 
   return (
     <>
-      <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
+      <header className="bg-white dark:bg-background shadow-sm border-b border-gray-200 dark:border-white/10">
         <div className="px-3 sm:px-4 lg:px-6">
           <div className="flex h-14 sm:h-16 items-center justify-between">
             <div className="flex items-center gap-3">
@@ -55,6 +56,8 @@ export const HeaderMenu = () => {
                   <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500" />
                 </Button>
               </motion.div>
+
+                <ThemeSwitch className="h-[4rem] w-[4rem] top-0" />
 
               {token && (
                 <Dropdown>
@@ -80,7 +83,7 @@ export const HeaderMenu = () => {
                     </motion.div>
                   </DropdownTrigger>
                   <AnimatePresence>
-                    <DropdownMenu>
+                    <DropdownMenu className="w-24 sm:w-24 origin-top-right right-0 mt-2 border border-gray-200 dark:border-white/10 shadow-lg">
                       <DropdownItem key="logout" onClick={handleLogout}>
                         Sair
                       </DropdownItem>

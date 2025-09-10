@@ -23,12 +23,8 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="flex h-screen overflow-hidden">
-      <div className="flex flex-col flex-1 min-w-0">
-        <main className="flex-1 p-3 sm:p-4 md:p-6 bg-gray-100 dark:bg-gray-900 overflow-auto">
-          <Home />
-        </main>
-      </div>
+    <div>
+      <Home />
     </div>
   );
 }

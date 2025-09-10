@@ -17,8 +17,8 @@ interface ProductsHeaderProps {
 const ProductsHeader = ({ handleCreateProduct }: ProductsHeaderProps) => (
   <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
     <div>
-      <h1 className="text-2xl font-semibold text-gray-900">Produtos</h1>
-      <p className="text-sm text-gray-500">
+      <h1 className="text-2xl font-semibold text-black dark:text-white">Produtos</h1>
+      <p className="text-sm text-black dark:text-white">
         Gerencie seus produtos e visualize seu desempenho
       </p>
     </div>
@@ -26,7 +26,7 @@ const ProductsHeader = ({ handleCreateProduct }: ProductsHeaderProps) => (
       color="primary"
       startContent={<PlusCircle className="h-4 w-4" />}
       onPress={handleCreateProduct}
-      className="rounded-xl shadow-md w-[10rem] text-white hover:bg-primary/90 focus:bg-primary/90 active:bg-primary/80"
+      className="rounded-xl shadow-md w-[10rem] text-white hover:bg-primary/90 focus:bg-primary/90 active:bg-primary/80 dark:text-black dark:bg-white"
     >
       Novo Produto
     </Button>
@@ -48,7 +48,7 @@ const ProductsSearchAndFilter = ({
 }: ProductsSearchAndFilterProps) => (
   <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
     <div className="relative flex-1 max-w-sm">
-      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-black dark:text-white" />
       <Input
         placeholder="Buscar produtos..."
         value={globalFilter}
@@ -56,7 +56,7 @@ const ProductsSearchAndFilter = ({
         className="pl-10"
       />
     </div>
-    <div className="text-sm text-gray-500">
+    <div className="text-sm text-black dark:text-white">
       {filteredRowCount} de {totalProductCount} produtos
     </div>
   </div>
@@ -77,10 +77,10 @@ const ProductsTable = ({
   handleViewProduct,
   handleCreateProduct,
 }: ProductsTableProps) => (
-  <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+  <div className="bg-white rounded-lg border border-gray-200 overflow-hidden dark:bg-background dark:border-white/10">
     <div className="overflow-x-auto">
       <table className="w-full">
-        <thead className="bg-gray-50 border-b border-gray-200">
+        <thead className="bg-gray-50 border-b border-gray-200 dark:bg-background dark:border-white/10">
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
@@ -100,7 +100,7 @@ const ProductsTable = ({
             </tr>
           ))}
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
+        <tbody className="bg-white divide-y divide-gray-200 dark:bg-background dark:divide-white/10">
           {isLoading ? (
             <tr>
               <td colSpan={columnsLength} className="px-6 py-12 text-center">
@@ -114,7 +114,7 @@ const ProductsTable = ({
             table.getRowModel().rows.map((row) => (
               <tr
                 key={row.id}
-                className="hover:bg-gray-50 transition-colors cursor-pointer"
+                className="hover:bg-gray-100 dark:hover:bg-background transition-colors cursor-pointer"
                 onClick={() => handleViewProduct(row.original.id)}
               >
                 {row.getVisibleCells().map((cell) => (
@@ -140,15 +140,15 @@ const ProductsTable = ({
               <td colSpan={columnsLength} className="px-6 py-12 text-center">
                 <div className="text-gray-400">
                   <PlusCircle className="mx-auto h-12 w-12 mb-4" />
-                  <h3 className="text-sm font-medium text-gray-900 mb-1">
+                  <h3 className="text-sm font-medium text-black dark:text-white mb-1">
                     Nenhum produto encontrado
                   </h3>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-black dark:text-white">
                     Comece criando seu primeiro produto.
                   </p>
                   <Button
                     color="primary"
-                    className="mt-4"
+                    className="mt-4 rounded-xl shadow-md w-[10rem] text-white hover:bg-primary/90 focus:bg-primary/90 active:bg-primary/80 dark:text-black dark:bg-white"
                     onPress={handleCreateProduct}
                   >
                     Criar Produto
@@ -172,10 +172,10 @@ const ProductsPagination = ({ table }: ProductsPaginationProps) => (
     <div className="px-6 py-4 border-t border-gray-200 bg-gray-50">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-700">
+          <span className="text-sm text-black dark:text-white">
             Página {table.getState().pagination.pageIndex + 1} de {table.getPageCount()}
           </span>
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-black dark:text-white">
             ({table.getFilteredRowModel().rows.length} resultados)
           </span>
         </div>

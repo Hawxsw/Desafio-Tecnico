@@ -25,9 +25,8 @@ export const useProductStore = create<ProductState>((set, get) => ({
     set({ status: 'loading', error: null });
     try {
       const response = await api.product.createProduct(productData);
-      const newProduct = ProductSchema.parse(response);
-      set({ status: 'succeeded', products: [...get().products, newProduct] });
-      return newProduct;
+      set({ status: 'succeeded' });
+      return response;
     } catch (error: any) {
       const errorMessage = error.response?.data?.message || 'Erro desconhecido ao criar produto.';
       set({ status: 'failed', error: errorMessage });

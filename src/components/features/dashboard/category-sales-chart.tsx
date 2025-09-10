@@ -59,6 +59,9 @@ export function CategorySalesChart() {
                 outerRadius={70}
                 paddingAngle={3}
                 dataKey="value"
+                isAnimationActive={true}
+                animationDuration={800}
+                animationEasing="ease-out"
               >
                 {categoryData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />

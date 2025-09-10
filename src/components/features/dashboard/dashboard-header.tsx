@@ -1,9 +1,15 @@
+import { motion } from "framer-motion";
 import { Button } from "@heroui/button";
 import { Calendar, Filter } from "lucide-react";
 
 export function DashboardHeader() {
   return (
-    <div className="mb-6 sm:mb-8">
+    <motion.div
+      className="mb-6 sm:mb-8"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.1 }}
+    >
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground text-balance">Dashboard de Métricas</h1>
@@ -21,6 +27,6 @@ export function DashboardHeader() {
           </Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -10,7 +10,11 @@ import { IoIosSunny, IoMdMoon } from 'react-icons/io';
 import { Button } from '@heroui/button';
 import { useTheme } from '@/lib/hooks/useTheme';
 
-export function ThemeSwitch() {
+interface ThemeSwitchProps {
+  className?: string;
+}
+
+export function ThemeSwitch({ className }: ThemeSwitchProps) {
   const { setTheme } = useTheme();
 
   return (
@@ -19,14 +23,14 @@ export function ThemeSwitch() {
         <Button
           variant="faded"
           size="sm"
-          className="fixed top-2 right-2 h-[2rem] w-[2rem]"
+          className={className}
         >
           <IoIosSunny className="h-[1rem] w-[1rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <IoMdMoon className="absolute h-[1rem] w-[1rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Trocar tema</span>
         </Button>
       </DropdownTrigger>
-      <DropdownMenu>
+      <DropdownMenu className='w-40 text-sm top-[-1rem] font-medium text-center text-foreground bg-white dark:bg-background border border-gray-200 dark:border-background shadow-md'>
         <DropdownItem key="light" onClick={() => setTheme('light')}>
           Claro
         </DropdownItem>

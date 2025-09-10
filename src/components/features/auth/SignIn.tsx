@@ -54,7 +54,7 @@ export const SignIn = () => {
 
   return (
     <>
-      <ThemeSwitch />
+      <ThemeSwitch className="fixed top-2 right-2 h-[4rem] w-[4rem]" />
       <div className="w-[100vw] h-[100vh] flex justify-between items-center sm:flex-row flex-col">
         <div
           className={`w-[50%] h-[100%] ${theme === "light" ? "bg-primary" : "bg-primary"} sm:flex justify-center items-center hidden`}
@@ -76,7 +76,7 @@ export const SignIn = () => {
               <Input
                 placeholder="Email"
                 {...register("email")}
-                className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:text-white text-black"
+                className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary dark:bg-white dark:text-white text-black"
               />
               {errors?.email && (
                 <span className="text-red-500 text-sm">
@@ -89,7 +89,7 @@ export const SignIn = () => {
                   type={showPassword ? "text" : "password"}
                   placeholder="Senha"
                   {...register("password")}
-                  className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:text-white text-black"
+                  className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary dark:bg-white dark:text-black text-black"
                 />
                 <button
                   type="button"
@@ -120,7 +120,7 @@ export const SignIn = () => {
                   <Button
                     type="button"
                     variant="ghost"
-                    className="w-full text-primary"
+                    className="w-full text-primary rounded-lg border border-primary dark:text-white"
                   >
                     Registrar
                   </Button>
