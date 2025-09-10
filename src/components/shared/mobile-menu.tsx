@@ -22,7 +22,6 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   { href: "/dashboard", label: "Dashboard", icon: <Squares2X2Icon className="h-5 w-5" /> },
   { href: "/dashboard/products", label: "Products", icon: <CubeIcon className="h-5 w-5" /> },
-  { href: "/dashboard/users", label: "Users", icon: <UsersIcon className="h-5 w-5" /> },
   { href: "/dashboard/settings", label: "Settings", icon: <Cog6ToothIcon className="h-5 w-5" /> },
 ];
 
@@ -38,7 +37,6 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Overlay */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -47,7 +45,6 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             onClick={onClose}
           />
           
-          {/* Menu */}
           <motion.aside
             initial={{ x: "-100%" }}
             animate={{ x: 0 }}
@@ -56,7 +53,6 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             className="fixed left-0 top-0 h-full w-80 max-w-[85vw] bg-card text-card-foreground border-r border-border z-50 lg:hidden"
           >
             <div className="flex flex-col h-full p-4">
-              {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-semibold">Menu</h2>
                 <Button
@@ -68,7 +64,6 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 </Button>
               </div>
 
-              {/* Navigation */}
               <nav className="flex-1 space-y-2">
                 {menuItems.map((item) => (
                   <Link
