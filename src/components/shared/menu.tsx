@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/utils/shadcn.helper";
+import { cn } from "@/lib/utils/shadcn.helper";
 import { useState } from "react";
 import {
   Squares2X2Icon,
@@ -23,7 +23,6 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   { href: "/dashboard", label: "Dashboard", icon: <Squares2X2Icon className="h-5 w-5" /> },
   { href: "/dashboard/products", label: "Products", icon: <CubeIcon className="h-5 w-5" /> },
-  { href: "/dashboard/users", label: "Users", icon: <UsersIcon className="h-5 w-5" /> },
   { href: "/dashboard/settings", label: "Settings", icon: <Cog6ToothIcon className="h-5 w-5" /> },
 ];
 

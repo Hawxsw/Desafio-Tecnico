@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import { useTheme } from '../hooks/useTheme';
 import {
   Dropdown,
   DropdownTrigger,
@@ -9,6 +8,7 @@ import {
 } from "@heroui/dropdown";
 import { IoIosSunny, IoMdMoon } from 'react-icons/io';
 import { Button } from '@heroui/button';
+import { useTheme } from '@/lib/hooks/useTheme';
 
 export function ThemeSwitch() {
   const { setTheme } = useTheme();

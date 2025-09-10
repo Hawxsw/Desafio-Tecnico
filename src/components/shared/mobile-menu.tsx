@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/utils/shadcn.helper";
+import { cn } from "@/lib/utils/shadcn.helper";
 import {
   Squares2X2Icon,
   CubeIcon,

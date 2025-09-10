@@ -1,8 +1,8 @@
+'use client'
 import { BellIcon, Bars3Icon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { Button } from "@heroui/button";
-import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../store/auth.slice";
+import { useAuthStore } from "@/stores/auth.store";
 import { HorizontalLogo } from "./horizontal-logo";
 import {
   Dropdown,
@@ -11,19 +11,17 @@ import {
   DropdownItem,
 } from "@heroui/dropdown";
 import { motion, AnimatePresence } from "framer-motion";
-import { RootState } from "../../store";
 import { useState } from "react";
 import { MobileMenu } from "./mobile-menu";
 import { useRouter } from "next/navigation";
 
 export const HeaderMenu = () => {
-  const dispatch = useDispatch();
+  const { token, logout } = useAuthStore();
   const router = useRouter();
-  const token = useSelector((state: RootState) => state.auth.token);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLogout = () => {
-    dispatch(logout());
+    logout();
     router.push("/signin");
   };
 

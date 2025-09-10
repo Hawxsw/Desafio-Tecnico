@@ -4,8 +4,8 @@ import React from 'react';
 import Image from 'next/image';
 import logo_black from '../../../public/horizontal_logo_black.png';
 import logo_white from '../../../public/horizontal_logo_white.png';
-import { cn } from '@/utils/shadcn.helper';
-import { useTheme } from '../../hooks/useTheme';
+import { cn } from '@/lib/utils/shadcn.helper';
+import { useTheme } from '@/lib/hooks/useTheme';
 
 export function HorizontalLogo({
   className,

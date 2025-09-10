@@ -1,5 +1,5 @@
 // biome-ignore assist/source/organizeImports: <explanation>
-import type {  LoginType } from "@/schemas/user.schema";
+import type {  LoginType } from "@/lib/user/user.schema";
 import type { AxiosInstance } from "axios";
 
 export class AuthService {
