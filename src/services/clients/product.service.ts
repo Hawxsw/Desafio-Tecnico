@@ -14,10 +14,10 @@ export class ProductService {
     pageSize: number = 10,
     filter?: string
   ): Promise<ProductListItem[]> {
-    const { data } = await this.api.get("/products", {
+    const { data: responseData } = await this.api.get("/products", {
       params: { page, pageSize, filter },
     });
-    return data;
+    return responseData.data;
   }
 
   async getProductById(id: string): Promise<Product> {

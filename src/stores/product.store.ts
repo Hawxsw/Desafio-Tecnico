@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { Product, ProductCreationSchema, ProductSchema, ProductListItem } from '@/lib/products/product.schema';
-import { api, IPaginationResponse } from '@/services/api';
+import { api } from '@/services/api';
 import z from 'zod';
 
 interface ProductState {
