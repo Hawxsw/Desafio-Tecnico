@@ -3,6 +3,30 @@ import { UserService } from "./clients/user.service";
 import { AuthService } from "./clients/auth.service";
 import { ProductService } from "./clients/product.service";
 
+export interface IPaginationResponse<T> {
+    data: T[];
+    meta: {
+        current_page: number;
+        from: number;
+        last_page: number;
+        links: Array<{
+            url: string | null;
+            label: string;
+            active: boolean;
+        }>;
+        path: string;
+        per_page: number;
+        to: number;
+        total: number;
+    };
+    links: {
+        first: string;
+        last: string;
+        prev: string | null;
+        next: string | null;
+    };
+}
+
 export class ApiService {
     public api: AxiosInstance;
     readonly user: UserService;
