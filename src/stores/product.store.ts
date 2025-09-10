@@ -1,10 +1,10 @@
 import { create } from 'zustand';
-import { Product, ProductCreationSchema, ProductSchema } from '@/lib/products/product.schema';
+import { Product, ProductCreationSchema, ProductSchema, ProductListItem } from '@/lib/products/product.schema';
 import { api, IPaginationResponse } from '@/services/api';
 import z from 'zod';
 
 interface ProductState {
-  products: Product[];
+  products: ProductListItem[];
   currentProduct: Product | null;
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
@@ -13,7 +13,7 @@ interface ProductState {
   fetchProductById: (id: string) => Promise<void>;
   updateProduct: (id: string, product: Partial<Product>) => Promise<void>;
   deleteProduct: (id: string) => Promise<void>;
-  updateProductThumbnail: (id: string, thumbnail: string) => Promise<void>;
+  updateProductThumbnail: (id: string, thumbnail: File) => Promise<void>;
 }
 
 export const useProductStore = create<ProductState>((set, get) => ({
@@ -37,7 +37,7 @@ export const useProductStore = create<ProductState>((set, get) => ({
     set({ status: 'loading', error: null });
     try {
       const response = await api.product.getProducts();
-      set({ status: 'succeeded', products: response.data });
+      set({ status: 'succeeded', products: response });
     } catch (error: any) {
       set({ status: 'failed', error: error.message || 'Falha ao buscar produtos' });
     }
@@ -46,7 +46,7 @@ export const useProductStore = create<ProductState>((set, get) => ({
     set({ status: 'loading', error: null });
     try {
       const response = await api.product.getProductById(id);
-      const product = ProductSchema.parse(response.data);
+      const product = ProductSchema.parse(response);
       set({ status: 'succeeded', currentProduct: product });
     } catch (error: any) {
       set({ status: 'failed', error: error.message || 'Falha ao buscar produto' });
