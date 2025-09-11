@@ -2,7 +2,12 @@ import { motion } from "framer-motion";
 import { Button } from "@heroui/button";
 import { Calendar, Filter } from "lucide-react";
 
-export function DashboardHeader() {
+interface DashboardHeaderProps {
+  title: string;
+  description: string;
+}
+
+export function DashboardHeader({ title, description }: DashboardHeaderProps) {
   return (
     <motion.div
       className="mb-6 sm:mb-8"
@@ -12,8 +17,8 @@ export function DashboardHeader() {
     >
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-foreground text-balance">Dashboard de Métricas</h1>
-          <p className="text-sm sm:text-base text-muted-foreground text-pretty">Acompanhe o desempenho do seu negócio em tempo real</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground text-balance">{title}</h1>
+          <p className="text-sm sm:text-base text-muted-foreground text-pretty">{description}</p>
         </div>
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
           <Button variant="solid" size="sm" className="w-full sm:w-auto">

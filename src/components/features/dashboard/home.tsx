@@ -21,7 +21,7 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <DashboardHeader />
+        <DashboardHeader title="Dashboard de Métricas" description="Acompanhe o desempenho do seu negócio em tempo real" />
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
