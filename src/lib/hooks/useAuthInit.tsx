@@ -4,7 +4,7 @@ import { useAuthStore } from "@/stores/auth.store";
 import { useEffect } from "react";
 
 export const useAuthInit = () => {
-  const { setToken } = useAuthStore();
+  const { setToken, markInitialized } = useAuthStore();
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -12,5 +12,7 @@ export const useAuthInit = () => {
     if (storedToken) {
       setToken(storedToken);
     }
-  }, [setToken]);
+    // Always mark initialized after checking storage to prevent UI flicker
+    markInitialized();
+  }, [setToken, markInitialized]);
 };

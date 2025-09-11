@@ -3,9 +3,15 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from 'next/navigation';
 import React from 'react';
+import { useAuthStore } from '@/stores/auth.store';
 
 export function LayoutClient({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const { initialized } = useAuthStore();
+
+  if (!initialized) {
+    return null;
+  }
 
   return (
     <AnimatePresence mode="wait">
